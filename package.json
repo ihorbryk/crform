@@ -1,0 +1,31 @@
+{
+  "name": "crform",
+  "version": "1.0.0",
+  "description": "form manager for react projects",
+  "main": "index.ts",
+  "scripts": {
+    "test": "vitest",
+    "dev": "vite serve example/"
+  },
+  "keywords": [
+    "typescript",
+    "react",
+    "form"
+  ],
+  "author": "ihorbryk",
+  "license": "MIT",
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^14.0.0",
+    "@types/react": "^18.2.14",
+    "@vitejs/plugin-react": "^4.0.1",
+    "jsdom": "^22.1.0",
+    "react-dom": "^18.2.0",
+    "react-test-renderer": "^18.2.0",
+    "vite": "^4.3.9",
+    "vitest": "^0.32.2"
+  },
+  "dependencies": {
+    "react": "^18.2.0"
+  }
+}
