@@ -11,14 +11,14 @@ All code written in typescript and has a lot of type definitions and naturaly in
 
 ### NPM
 ```bash
-npm install crform
+npm install @ihorbryk/crform
 ```
 
 or
 
 ### Yarn
 ```bash
-yarn add crform
+yarn add @ihoorbryk/crform
 ```
 
 SRForm compatible with react 18.2.0 and higher.
