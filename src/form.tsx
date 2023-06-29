@@ -1,21 +1,21 @@
 import { useState } from "react";
 
-export type Values = Record<string, string>;
+export type Values<T> = T;
 
-export type Errors = Record<keyof Values, string>;
+export type Errors<T> = Partial<Record<keyof Values<T>, string>>;
 
-type FormProps = {
-  initialValues: Values;
-  onSubmit: (values: Record<keyof Values, string>) => void;
-  initialErrors?: Errors;
-  validate?: (values: Record<keyof Values, string>) => Record<keyof Values, string>;
+type FormProps<T> = {
+  initialValues: Values<T>;
+  onSubmit: (values: Values<T>) => void;
+  initialErrors?: Errors<T>;
+  validate?: (values: Values<T>) => Errors<T>;
 };
 
-export const useCRForm = (props: FormProps) => {
-  const [values, setValue] = useState<Values>(props.initialValues);
-  const [errors, setErrors] = useState<Errors>(props.initialErrors || {});
+export const useCRForm = <T,>(props: FormProps<T>) => {
+  const [values, setValue] = useState<Values<T>>(props.initialValues);
+  const [errors, setErrors] = useState<Errors<T>>(props.initialErrors || ({} as Errors<T>));
 
-  const onChangeField = (field: keyof Values, value: string, validate: boolean = false) => {
+  const onChangeField = (field: keyof Values<T>, value: string, validate: boolean = false) => {
     if (validate && props.validate) {
       const errors = props.validate({ ...values, [field]: value });
       setErrors(errors);
@@ -23,8 +23,8 @@ export const useCRForm = (props: FormProps) => {
     setValue({ ...values, [field]: value });
   };
 
-  const handleValidate = (): Errors => {
-    let errors = {};
+  const handleValidate = (): Errors<T> => {
+    let errors = {} as Errors<T>;
     if (props.validate) {
       errors = props.validate(values);
       setErrors(errors);
@@ -49,11 +49,11 @@ export const useCRForm = (props: FormProps) => {
     return !isValid();
   };
 
-  const setFieldValue = (field: keyof Values, value: string) => {
+  const setFieldValue = (field: keyof Values<T>, value: string) => {
     setValue({ ...values, [field]: value });
   };
 
-  const setValues = (values: Values) => {
+  const setValues = (values: Values<T>) => {
     setValue(values);
   };
 

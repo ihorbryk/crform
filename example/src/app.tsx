@@ -1,12 +1,14 @@
 import React from "react";
-import { Errors, useCRForm } from "../../src/form";
+import { Errors, useCRForm } from "../../index";
 
 const App = () => {
+  const initialValues = { name: "" };
+
   const form = useCRForm({
-    initialValues: { name: "" },
+    initialValues: initialValues,
     onSubmit: (values) => alert(values.name),
     validate: (values) => {
-      const errors: Errors = {};
+      const errors: Errors<typeof initialValues> = {};
       if (!values.name) {
         errors.name = "Name is required";
       }
