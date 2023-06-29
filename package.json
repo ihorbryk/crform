@@ -1,6 +1,6 @@
 {
   "name": "@ihorbryk/crform",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "form manager for react projects",
   "main": "index.ts",
   "homepage": "https://github.com/ihorbryk/crform",
