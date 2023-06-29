@@ -1,8 +1,13 @@
 {
-  "name": "crform",
+  "name": "@ihorbryk/crform",
   "version": "1.0.0",
   "description": "form manager for react projects",
   "main": "index.ts",
+  "homepage": "https://github.com/ihorbryk/crform",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ihorbryk/crform"
+  },
   "scripts": {
     "test": "vitest",
     "dev": "vite serve example/"
