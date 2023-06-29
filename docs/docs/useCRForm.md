@@ -1,32 +1,12 @@
 ---
-sidebar_label: 'Overview'
-sidebar_position: 1
+sidebar_label: 'useCRForm'
+sidebar_position: 2
 ---
-# Overview
+# useCRForm()
 
-This package provide simple tool for working with forms in modern react + typescript stacks.
-All code written in typescript and has a lot of type definitions and naturaly integrate with you typescript project.
+useCRForm is a react hook, that provides a set of methods for working with form state.
 
-## Installation
-
-### NPM
-```bash
-npm install crform
-```
-
-or
-
-### Yarn
-```bash
-yarn add crform
-```
-
-SRForm compatible with react 18.2.0 and higher.
-
-## Usage
-
-SRForm is a simple wrapper around react hooks. It provides a simple way to work with forms in react.
-Basicaly, SRForm is a react hook, that provides a set of methods for working with form state.
+## Example
 
 ```tsx
 import { useCRForm, Errors } from '@ihorbryk/crform';
@@ -60,4 +40,17 @@ const App = () => {
 
 export default App;
 ```
+
+## API
+
+### Props
+
+| Name | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| initialValues | Values | true | - | Initial values of form |
+| onSubmit | (values: Values) => void | true | - | Callback that will be called when form is submitted |
+| validate | (values: Values) => Errors | false | - | Callback that will be called when form is submitted and return errors object |
+| validateOnChange | boolean | false | false | If true, validate form on change. |
+
+
 
